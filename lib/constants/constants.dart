@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ows_figmadesign1/screens/bottomnav/widgets/custom_container.dart';
+import 'package:ows_figmadesign1/screens/play_screen/play_screen.dart';
 import 'package:ows_figmadesign1/screens/tab_bar/tab_bar_view.dart';
 
 const FONT_FAMILY = 'Poppins';
@@ -53,8 +54,7 @@ const TX_SHARE_TEXT ="Download the latest no-Ads India Mart on Play store\n\n ht
 
 final CKL_SELECTPAGE = [
   CustomTabBar(),
-  CustomContainer(txt: 'Screen 2'),
-  CustomContainer(txt: 'Screen 3'),
-  CustomContainer(txt: 'Screen 4'),
-  CustomContainer(txt: 'Screen 5'),
+  PlayScreen(),
+  CustomContainer(txt: 'My Wallet'),
+  CustomContainer(txt: 'More'),
 ];

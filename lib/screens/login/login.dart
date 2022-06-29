@@ -4,6 +4,7 @@ import 'package:ows_figmadesign1/screens/bottomnav/screen_bottom_nav.dart';
 import 'package:ows_figmadesign1/screens/bottomnav/widgets/custom_nav_bar.dart';
 import 'package:ows_figmadesign1/screens/registeration/background.dart';
 import 'package:ows_figmadesign1/screens/registeration/registration.dart';
+import 'package:ows_figmadesign1/screens/route.dart';
 
 class LoginScreen extends StatelessWidget {
   final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
@@ -113,10 +114,7 @@ class LoginScreen extends StatelessWidget {
                 margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
                 child: GestureDetector(
                   onTap: () => {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => RegistrationScreen()))
+                   Navigator.pushReplacementNamed(context, RouteGenerator.signUp)
                   },
                   child: Text(
                     "Don't Have an Account? Sign up",

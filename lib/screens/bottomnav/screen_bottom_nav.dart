@@ -1,50 +1,47 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ows_figmadesign1/bloc/bottom_nav/bottom_nav_cubit.dart';
 import 'package:ows_figmadesign1/constants/constants.dart';
-import 'package:ows_figmadesign1/screens/drawer/drawer_home.dart';
-import 'package:ows_figmadesign1/screens/drawer/multilevel_drawer.dart';
-import 'package:ows_figmadesign1/screens/tab_bar/tab_bar_view.dart';
-import '../bottomnav/widgets/custom_app_bar.dart';
-import '../bottomnav/widgets/custom_body.dart';
-import '../bottomnav/widgets/custom_nav_bar.dart';
 
 class ScreenBottomNav extends StatefulWidget {
   @override
   _ScreenBottomState createState() => _ScreenBottomState();
 }
 
-class _ScreenBottomState extends State<ScreenBottomNav> with TickerProviderStateMixin{
-  late TabController _tabController;
+class _ScreenBottomState extends State<ScreenBottomNav> {
+  int pageIndex = 0;
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this, length: 3,initialIndex: 0);
   }
 
   @override
   void dispose() {
-    _tabController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BottomNavCubit, int>(
-      builder: (context, stateBottomNav) {
-        return Scaffold(
-          body: CKL_SELECTPAGE.elementAt(stateBottomNav),
-          bottomNavigationBar:
-          CustomBottomNavBar(
-              index: context.read<BottomNavCubit>().state,
-              function: _getChangeBottomNav),
-        );
-      },
-    );
-  }
-
-  void _getChangeBottomNav(int index) {
-    context.read<BottomNavCubit>().updateIndex(index);
+    return Scaffold(
+        body: CKL_SELECTPAGE.elementAt(pageIndex),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: pageIndex,
+          type: BottomNavigationBarType.fixed,
+          onTap: (index) {
+            setState(() {
+              pageIndex = index;
+            });
+          },
+          selectedItemColor: Colors.amber,
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.play_arrow), label: "Play Game"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.account_balance_wallet_sharp),
+                label: 'Wallet'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.more_horiz), label: "More"),
+          ],
+        ));
   }
 }
-

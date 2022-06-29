@@ -6,9 +6,16 @@ class CustomContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text(txt),
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Text(txt),
+      ),
+      body: Container(
+        child: Center(
+          child: Text(txt),
+        ),
       ),
     );
   }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ows_figmadesign1/screens/bootom_sheet.dart';
 import 'package:ows_figmadesign1/screens/bottomnav/widgets/custom_container.dart';
+import 'package:ows_figmadesign1/screens/satta_screen/satta_screen.dart';
 
 class CustomTabBar extends StatefulWidget {
   const CustomTabBar({Key? key}) : super(key: key);
@@ -21,6 +23,15 @@ class _CustomTabBarState extends State<CustomTabBar>
   ];
 
   late TabController _tabController;
+
+  void _modalMenu() {
+    showModalBottomSheet<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return BottomSheetMenu();
+      },
+    );
+  }
 
   @override
   void initState() {
@@ -118,7 +129,9 @@ class _CustomTabBarState extends State<CustomTabBar>
                   size: 24.0,
                   color: Colors.white,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  _modalMenu();
+                },
               ),
             ),
             Container(
@@ -177,9 +190,7 @@ class _CustomTabBarState extends State<CustomTabBar>
 
   Widget _selectBody() {
     return TabBarView(controller: _tabController, children: [
-      Center(
-        child: Text('${_tabController.index}'),
-      ),
+      SattaScreen(),
       Center(
         child: Text('${_tabController.index}'),
       ),
