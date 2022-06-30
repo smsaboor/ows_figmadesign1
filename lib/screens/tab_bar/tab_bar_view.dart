@@ -50,16 +50,16 @@ class _CustomTabBarState extends State<CustomTabBar>
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        drawer: Drawer(
+        drawer: Drawer(backgroundColor: Colors.white,
           child: ListView(
             padding: const EdgeInsets.all(0),
             children: [
               const DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.amber,
+                  color: Colors.deepPurple,
                 ), //BoxDecoration
                 child: UserAccountsDrawerHeader(
-                  decoration: BoxDecoration(color: Colors.amber),
+                  decoration: BoxDecoration(color: Colors.deepPurple),
                   accountName: Text(
                     "Abhishek Mishra",
                     style: TextStyle(fontSize: 18),
@@ -134,17 +134,6 @@ class _CustomTabBarState extends State<CustomTabBar>
                 },
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(right: 6.0),
-              child: IconButton(
-                icon: Icon(
-                  Icons.refresh,
-                  size: 24.0,
-                  color: Colors.black54,
-                ),
-                onPressed: () {},
-              ),
-            ),
           ],
           bottom: TabBar(
             labelStyle: TextStyle(
@@ -156,7 +145,7 @@ class _CustomTabBarState extends State<CustomTabBar>
             labelColor: Colors.black,
             indicatorSize: TabBarIndicatorSize.tab,
             indicatorWeight: 4,
-            indicatorColor: Colors.amber,
+            indicatorColor: Colors.white,
             // indicator: BoxDecoration(
             //     borderRadius: BorderRadius.only(
             //         topLeft: Radius.circular(10), topRight: Radius.circular(10)),
@@ -167,21 +156,22 @@ class _CustomTabBarState extends State<CustomTabBar>
               Tab(
                   child: Text(
                 'Satta',
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(fontSize: 18,color: Colors.white),
               )),
               Tab(
                   child: Text(
                 'Spin',
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(fontSize: 18,color: Colors.white),
               )),
               Tab(
                   child: Text(
                 'Color',
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(fontSize: 18,color: Colors.white),
               )),
             ],
           ),
-          title: Text('Play-King-Fast'),
+          title: Text('Play King Fast'),
+          centerTitle: true,
         ),
         body: _selectBody(),
       ),

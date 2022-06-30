@@ -42,6 +42,10 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_native_splash: ^2.1.6
+  flutter_slidable: 0.6.0
+  font_awesome_flutter: 10.1.0
+  google_fonts: 2.1.0
+  auto_size_text: 3.0.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
